@@ -43,8 +43,9 @@
 
   <script>
     document.getElementById('go-btn').addEventListener('click', function () {
-      // Redirect to Brave Search
-      window.location.href = 'https://search.brave.com';
+      // Open Brave Search in a new tab (safer: noopener,noreferrer)
+      const newWin = window.open('https://search.brave.com', '_blank', 'noopener,noreferrer');
+      if (newWin) newWin.focus();
     });
   </script>
 </body>
