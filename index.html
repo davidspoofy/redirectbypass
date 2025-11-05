@@ -10,6 +10,16 @@
       --card: #ffffff;
       --accent: #ff5a5f;
       --text: #111827;
+
+      /* brand colors */
+      --google: #4285F4;
+      --bing: #0067B8;
+      --duckduckgo: #DE5833;
+      --yahoo: #410093;
+      --brave: #ff5a5f;
+      --ecosia: #2d8f2d;
+      --startpage: #1b4f9c;
+      --google-gn: #34A853; /* green as accent if needed */
     }
     html,body {
       height: 100%;
@@ -31,24 +41,39 @@
       border-radius: 12px;
       background: var(--card);
       box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-      max-width: 420px;
+      max-width: 520px;
       width: 100%;
+    }
+
+    /* Buttons grid */
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      margin-top: 1rem;
+      align-items: center;
+      justify-items: center;
+    }
+    @media (max-width: 480px) {
+      .buttons { grid-template-columns: 1fr; }
     }
 
     /* Anchor styled like a button */
     .visit-btn {
       display: inline-block;
       text-decoration: none;
-      background: var(--accent);
       color: #fff;
-      padding: 0.75rem 1.25rem;
-      font-size: 1rem;
-      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-size: 0.95rem;
+      border-radius: 10px;
       cursor: pointer;
       border: none;
       line-height: 1;
-      transition: transform 80ms ease, box-shadow 120ms ease;
+      transition: transform 80ms ease, box-shadow 120ms ease, opacity 120ms ease;
       box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+      width: 100%;
+      text-align: center;
+      font-weight: 600;
     }
     .visit-btn:active { transform: translateY(1px); }
     .visit-btn:focus {
@@ -56,26 +81,107 @@
       outline-offset: 3px;
       box-shadow: 0 8px 18px rgba(0,0,0,0.12);
     }
+
+    /* Brand-specific colors */
+    .btn-brave { background: var(--brave); }
+    .btn-google { background: var(--google); }
+    .btn-bing { background: var(--bing); }
+    .btn-duck { background: var(--duckduckgo); }
+    .btn-yahoo { background: var(--yahoo); }
+    .btn-ecosia { background: var(--ecosia); }
+    .btn-startpage { background: var(--startpage); }
+
     .note { color: #6b7280; margin-top: .75rem; font-size: .95rem; }
+    .lead { margin: 0 0 .5rem 0; font-size: 1.125rem; }
+    .sub { color: #6b7280; font-size: .9rem; margin-bottom: .5rem; }
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="card">
       <h1>Redirect Bypass</h1>
-      <p class="note">Click the button to open Brave Search in a new tab.</p>
+      <p class="sub">Open a search engine in a new tab by clicking any button below.</p>
 
-      <!-- Anchor tag styled as a button. Opens in a new tab. -->
-      <a
-        class="visit-btn"
-        href="https://search.brave.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-        role="button"
-        aria-label="Open Brave Search in a new tab"
-      >
-        Go to Brave Search
-      </a>
+      <div class="buttons" role="group" aria-label="Search engine links">
+        <a
+          class="visit-btn btn-brave"
+          href="https://search.brave.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          role="button"
+          aria-label="Open Brave Search in a new tab"
+        >
+          Brave Search
+        </a>
+
+        <a
+          class="visit-btn btn-google"
+          href="https://www.google.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          role="button"
+          aria-label="Open Google Search in a new tab"
+        >
+          Google
+        </a>
+
+        <a
+          class="visit-btn btn-bing"
+          href="https://www.bing.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          role="button"
+          aria-label="Open Bing in a new tab"
+        >
+          Bing
+        </a>
+
+        <a
+          class="visit-btn btn-duck"
+          href="https://duckduckgo.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          role="button"
+          aria-label="Open DuckDuckGo in a new tab"
+        >
+          DuckDuckGo
+        </a>
+
+        <a
+          class="visit-btn btn-yahoo"
+          href="https://search.yahoo.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          role="button"
+          aria-label="Open Yahoo Search in a new tab"
+        >
+          Yahoo
+        </a>
+
+        <a
+          class="visit-btn btn-ecosia"
+          href="https://www.ecosia.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+          role="button"
+          aria-label="Open Ecosia in a new tab"
+        >
+          Ecosia
+        </a>
+
+        <a
+          class="visit-btn btn-startpage"
+          href="https://www.startpage.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          role="button"
+          aria-label="Open Startpage in a new tab"
+        >
+          Startpage
+        </a>
+      </div>
+
+      <p class="note">All links open in a new tab. You can add or remove providers in the HTML.</p>
     </div>
   </div>
 </body>
